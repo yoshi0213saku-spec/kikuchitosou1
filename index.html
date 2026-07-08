@@ -52,13 +52,13 @@
                 <a href="#" onclick="navigateTo('home'); return false;" class="px-3 py-2 hover:text-blue-900 transition">ホーム</a>
                 <a href="#" onclick="navigateTo('about'); return false;" class="px-3 py-2 hover:text-blue-900 transition">会社案内</a>
                 
-                <!-- プランメニューのドロップダウン風 -->
+                <!-- プランメニューのドロップダウン -->
                 <div class="relative group">
                     <button class="px-3 py-2 hover:text-blue-900 transition flex items-center gap-1">
                         塗装メニュー <i class="fa-solid fa-chevron-down text-xs"></i>
                     </button>
                     <div class="absolute top-full left-0 bg-white shadow-xl border border-slate-100 rounded-xl py-2 w-56 hidden group-hover:block z-50">
-                        <a href="#" onclick="navigateTo('wall'); return false;" class="block px-4 py-2 hover:bg-slate-50 hover:text-blue-900">外壁セルフ診断</a>
+                        <a href="#" onclick="navigateTo('wall'); return false;" class="block px-4 py-2 hover:bg-slate-50 hover:text-blue-900">我が家の外壁「塗り替えセルフ診断」</a>
                         <a href="#" onclick="navigateTo('roof'); return false;" class="block px-4 py-2 hover:bg-slate-50 hover:text-blue-900">屋根塗装</a>
                         <a href="#" onclick="navigateTo('other'); return false;" class="block px-4 py-2 hover:bg-slate-50 hover:text-blue-900">その他の工事</a>
                     </div>
@@ -94,7 +94,7 @@
             <div class="px-4 py-3 flex flex-col gap-2 font-bold text-slate-700">
                 <a href="#" onclick="navigateTo('home'); return false;" class="py-2 border-b border-slate-50">ホーム</a>
                 <a href="#" onclick="navigateTo('about'); return false;" class="py-2 border-b border-slate-50">会社案内・親方のこだわり</a>
-                <a href="#" onclick="navigateTo('wall'); return false;" class="py-2 border-b border-slate-50 pl-4 text-blue-900"><i class="fa-solid fa-chevron-right text-xs mr-2"></i>外壁セルフ診断</a>
+                <a href="#" onclick="navigateTo('wall'); return false;" class="py-2 border-b border-slate-50 pl-4 text-blue-900"><i class="fa-solid fa-chevron-right text-xs mr-2"></i>我が家の外壁「塗り替えセルフ診断」</a>
                 <a href="#" onclick="navigateTo('roof'); return false;" class="py-2 border-b border-slate-50 pl-4 text-blue-900"><i class="fa-solid fa-chevron-right text-xs mr-2"></i>屋根塗装・雨漏り防止</a>
                 <a href="#" onclick="navigateTo('other'); return false;" class="py-2 border-b border-slate-50 pl-4 text-blue-900"><i class="fa-solid fa-chevron-right text-xs mr-2"></i>その他の工事</a>
                 <a href="#" onclick="navigateTo('works'); return false;" class="py-2 border-b border-slate-50">施工事例</a>
@@ -113,7 +113,6 @@
         <section id="page-home" class="page-section active">
             <!-- ヒーローセクション -->
             <div class="bg-gradient-to-br from-blue-950 to-blue-900 text-white py-16 px-4 relative overflow-hidden">
-                <!-- 装飾用背景パターン -->
                 <div class="absolute inset-0 opacity-10">
                     <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
                         <defs>
@@ -148,11 +147,10 @@
                         </div>
                     </div>
 
-                    <!-- 右カラム：親方のビジュアルイメージ -->
+                    <!-- 右カラム：親方のビジュアル -->
                     <div class="lg:col-span-5 relative flex justify-center">
                         <div class="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-8 border-white/20 shadow-2xl">
                             <img src="mokuzoujyutaku1.png" alt="住宅外観" class="w-full h-full object-cover">
-                            <!-- オーバーレイ文言 -->
                             <div class="absolute bottom-4 left-0 right-0 bg-blue-950/90 text-white text-center py-2 px-4 backdrop-blur-sm">
                                 <p class="text-sm font-bold">代表・一級塗装技能士</p>
                                 <p class="text-base font-extrabold text-orange-400">菊池 ◯◯ (親方)</p>
@@ -162,10 +160,9 @@
                 </div>
             </div>
 
-            <!-- 4つの強み（見積無料、自社施工、地域密着、安心価格） -->
+            <!-- 4つの強み -->
             <section class="max-w-7xl mx-auto px-4 py-12 -mt-8 relative z-20">
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <!-- 強み1 -->
                     <div class="bg-white p-6 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-4 hover:-translate-y-1 transition duration-300">
                         <div class="bg-blue-50 text-blue-950 p-4 rounded-xl text-2xl shrink-0">
                             <i class="fa-solid fa-calculator text-blue-900"></i>
@@ -175,7 +172,6 @@
                             <p class="text-xs text-slate-500 mt-1">しつこい営業はありません</p>
                         </div>
                     </div>
-                    <!-- 強み2 -->
                     <div class="bg-white p-6 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-4 hover:-translate-y-1 transition duration-300">
                         <div class="bg-blue-50 text-blue-950 p-4 rounded-xl text-2xl shrink-0">
                             <i class="fa-solid fa-user-check text-blue-900"></i>
@@ -185,7 +181,6 @@
                             <p class="text-xs text-slate-500 mt-1">親方が直接責任対応</p>
                         </div>
                     </div>
-                    <!-- 強み3 -->
                     <div class="bg-white p-6 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-4 hover:-translate-y-1 transition duration-300">
                         <div class="bg-blue-50 text-blue-950 p-4 rounded-xl text-2xl shrink-0">
                             <i class="fa-solid fa-house-chimney-window text-blue-900"></i>
@@ -195,7 +190,6 @@
                             <p class="text-xs text-slate-500 mt-1">地元のお客様を大切に</p>
                         </div>
                     </div>
-                    <!-- 強み4 -->
                     <div class="bg-white p-6 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-4 hover:-translate-y-1 transition duration-300">
                         <div class="bg-blue-50 text-blue-950 p-4 rounded-xl text-2xl shrink-0">
                             <i class="fa-solid fa-yen-sign text-blue-900"></i>
@@ -208,7 +202,7 @@
                 </div>
             </section>
 
-            <!-- 私たちにお任せくださいセクション -->
+            <!-- トータル塗装メニュー -->
             <section class="max-w-7xl mx-auto px-4 py-12">
                 <div class="text-center space-y-2 mb-12">
                     <p class="text-sm font-bold text-blue-900 uppercase tracking-widest">— 私たちにお任せください —</p>
@@ -287,7 +281,7 @@
                         </a>
                     </div>
 
-                    <!-- Before/After 事例リスト (2カラムに厳選して綺麗に配置) -->
+                    <!-- Before/After 事例リスト -->
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
                         <!-- 事例1 -->
                         <div class="bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm">
@@ -336,7 +330,6 @@
 
             <!-- 親方あいさつ＆お客様の声 -->
             <section class="max-w-7xl mx-auto px-4 py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                <!-- 左：あいさつ -->
                 <div class="lg:col-span-5 bg-white p-8 rounded-3xl border border-slate-100 shadow-lg space-y-6">
                     <div class="flex items-center gap-4">
                         <div class="w-16 h-16 rounded-full overflow-hidden bg-blue-50 border border-slate-100 shrink-0">
@@ -355,7 +348,6 @@
                     </button>
                 </div>
 
-                <!-- 右：お客様の声 -->
                 <div class="lg:col-span-7 space-y-6">
                     <div class="space-y-1">
                         <p class="text-sm font-bold text-blue-900 tracking-wider">お客様の声</p>
@@ -378,14 +370,14 @@
                             </div>
                             <h4 class="font-extrabold text-slate-900 text-sm">見違えるようにきれいになりました</h4>
                             <p class="text-xs text-slate-500 leading-relaxed">
-                                新築時のようにきれいな壁に仕上がり大満足です。近難への挨拶やゴミの清掃まで丁寧でした。(◯◯市 S様)
+                                新築時のようにきれいな壁に仕上がり大満足です。近隣への挨拶やゴミの清掃まで丁寧でした。(◯◯市 S様)
                             </p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- 工事の流れ（簡易ステップ表示） -->
+            <!-- 工事の流れ -->
             <section class="bg-slate-900 text-white py-16 px-4">
                 <div class="max-w-7xl mx-auto space-y-12">
                     <div class="text-center space-y-1">
@@ -394,42 +386,36 @@
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6 relative">
-                        <!-- ステップ1 -->
                         <div class="bg-white/5 border border-white/10 rounded-2xl p-5 text-center relative">
                             <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-orange-600 text-white font-bold text-xs px-2.5 py-0.5 rounded-full">1</span>
                             <div class="text-2xl mb-3 text-orange-400 mt-2"><i class="fa-solid fa-phone"></i></div>
                             <h3 class="font-bold text-sm">お問合せ</h3>
                             <p class="text-[10px] text-slate-400 mt-2">お気軽にご相談ください</p>
                         </div>
-                        <!-- ステップ2 -->
                         <div class="bg-white/5 border border-white/10 rounded-2xl p-5 text-center relative">
                             <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-orange-600 text-white font-bold text-xs px-2.5 py-0.5 rounded-full">2</span>
                             <div class="text-2xl mb-3 text-orange-400 mt-2"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
                             <h3 class="font-bold text-sm">現地調査</h3>
                             <p class="text-[10px] text-slate-400 mt-2">親方が隅々まで確認</p>
                         </div>
-                        <!-- ステップ3 -->
                         <div class="bg-white/5 border border-white/10 rounded-2xl p-5 text-center relative">
                             <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-orange-600 text-white font-bold text-xs px-2.5 py-0.5 rounded-full">3</span>
                             <div class="text-2xl mb-3 text-orange-400 mt-2"><i class="fa-solid fa-file-invoice-dollar"></i></div>
                             <h3 class="font-bold text-sm">お見積り</h3>
                             <p class="text-[10px] text-slate-400 mt-2">明瞭なプランをご提示</p>
                         </div>
-                        <!-- ステップ4 -->
                         <div class="bg-white/5 border border-white/10 rounded-2xl p-5 text-center relative">
                             <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-orange-600 text-white font-bold text-xs px-2.5 py-0.5 rounded-full">4</span>
                             <div class="text-2xl mb-3 text-orange-400 mt-2"><i class="fa-solid fa-file-signature"></i></div>
                             <h3 class="font-bold text-sm">ご契約</h3>
                             <p class="text-[10px] text-slate-400 mt-2">内容にご納得のうえ契約</p>
                         </div>
-                        <!-- ステップ5 -->
                         <div class="bg-white/5 border border-white/10 rounded-2xl p-5 text-center relative">
                             <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-orange-600 text-white font-bold text-xs px-2.5 py-0.5 rounded-full">5</span>
                             <div class="text-2xl mb-3 text-orange-400 mt-2"><i class="fa-solid fa-brush"></i></div>
                             <h3 class="font-bold text-sm">責任施工</h3>
                             <p class="text-[10px] text-slate-400 mt-2">親方と職人が丁寧に施工</p>
                         </div>
-                        <!-- ステップ6 -->
                         <div class="bg-white/5 border border-white/10 rounded-2xl p-5 text-center relative">
                             <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-orange-600 text-white font-bold text-xs px-2.5 py-0.5 rounded-full">6</span>
                             <div class="text-2xl mb-3 text-orange-400 mt-2"><i class="fa-solid fa-circle-check"></i></div>
@@ -576,23 +562,6 @@
                     </div>
                     <img src="sekourei_katuma_yane_1.png" alt="屋根塗装の様子" class="rounded-3xl shadow-lg">
                 </div>
-
-                <!-- 屋根プラン目安 -->
-                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm space-y-6">
-                    <h3 class="text-lg font-bold text-slate-950 border-l-4 border-blue-900 pl-3">屋根塗装参考価格プラン (屋根面積 80㎡基準)</h3>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm">
-                        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100 space-y-2">
-                            <h4 class="font-extrabold text-slate-900">遮熱シリコンプラン</h4>
-                            <p class="text-orange-600 font-black text-lg">25万円〜</p>
-                            <p class="text-[11px] text-slate-500">まずはリーズナブルに屋根の遮熱性を向上させたい方におすすめ。</p>
-                        </div>
-                        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100 space-y-2">
-                            <h4 class="font-extrabold text-slate-900">超遮熱フッ素プラン</h4>
-                            <p class="text-orange-600 font-black text-lg">35万円〜</p>
-                            <p class="text-[11px] text-slate-500">高い耐候性をもつフッ素により、長期間にわたって屋根表面を保護します。</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -648,7 +617,7 @@
                     <button onclick="filterWorks('wall')" class="work-tab bg-white text-slate-700 font-bold text-xs px-5 py-2 rounded-full border border-slate-200">外壁塗装</button>
                 </div>
 
-                <!-- 事例グリッド (2枚構成にきれいに調整済み) -->
+                <!-- 事例グリッド -->
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
                     <!-- 事例1 -->
                     <div class="work-card bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm flex flex-col justify-between" data-category="wall">
@@ -715,7 +684,6 @@
             <div class="max-w-3xl mx-auto px-4 py-16">
                 <!-- 垂直型ステップ -->
                 <div class="space-y-12 relative before:absolute before:top-4 before:bottom-4 before:left-6 before:w-0.5 before:bg-slate-200">
-                    <!-- STEP 1 -->
                     <div class="relative pl-16 space-y-2">
                         <div class="absolute left-1.5 top-0 w-9 h-9 rounded-full bg-blue-900 text-white font-bold text-sm flex items-center justify-center shadow-md">1</div>
                         <h3 class="text-lg font-extrabold text-slate-950">お問い合わせ＆ご相談</h3>
@@ -723,7 +691,6 @@
                             お電話・LINE・お問合せフォームからご連絡ください。しつこいセールス営業などは完全ゼロをお約束いたします。
                         </p>
                     </div>
-                    <!-- STEP 2 -->
                     <div class="relative pl-16 space-y-2">
                         <div class="absolute left-1.5 top-0 w-9 h-9 rounded-full bg-blue-900 text-white font-bold text-sm flex items-center justify-center shadow-md">2</div>
                         <h3 class="text-lg font-extrabold text-slate-950">親方の現地診断</h3>
@@ -731,15 +698,13 @@
                             代表親方が直接、脚立やポールを用いて屋根の様子やひび割れ部分の正確な測定・診断を実施します。
                         </p>
                     </div>
-                    <!-- STEP 3 -->
                     <div class="relative pl-16 space-y-2">
                         <div class="absolute left-1.5 top-0 w-9 h-9 rounded-full bg-blue-900 text-white font-bold text-sm flex items-center justify-center shadow-md">3</div>
-                        <h3 class="text-lg font-extrabold text-slate-950">ご契約・近鄰へのご挨拶</h3>
+                        <h3 class="text-lg font-extrabold text-slate-950">ご契約・近隣へのご挨拶</h3>
                         <p class="text-xs text-slate-600 leading-relaxed">
                             明瞭なお見積もりプランに納得の上でご契約。着工前には、お隣近所のご家庭へ直接親方が丁寧な挨拶を行います。
                         </p>
                     </div>
-                    <!-- STEP 4 -->
                     <div class="relative pl-16 space-y-2">
                         <div class="absolute left-1.5 top-0 w-9 h-9 rounded-full bg-blue-900 text-white font-bold text-sm flex items-center justify-center shadow-md">4</div>
                         <h3 class="text-lg font-extrabold text-slate-950">徹底した責任施工</h3>
@@ -761,7 +726,6 @@
             </div>
 
             <div class="max-w-3xl mx-auto px-4 py-16 space-y-4">
-                <!-- 質問1 -->
                 <div class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
                     <button onclick="toggleAccordion('faq1')" class="w-full p-5 text-left font-extrabold text-slate-900 text-sm sm:text-base flex justify-between items-center bg-slate-50">
                         <span>Q. 見積もりをお願いしたら、しつこく電話営業されたりしませんか？</span>
@@ -771,7 +735,6 @@
                         A. はい、ご安心ください。菊池塗装店では、お客様に納得して選んでいただきたいため、強引な売り込みやしつこい電話営業は一切行っておりません。ご相談のみでも大歓迎です。
                     </div>
                 </div>
-                <!-- 質問2 -->
                 <div class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
                     <button onclick="toggleAccordion('faq2')" class="w-full p-5 text-left font-extrabold text-slate-900 text-sm sm:text-base flex justify-between items-center bg-slate-50">
                         <span>Q. 工事期間中、家をあけて外出しても大丈夫ですか？</span>
@@ -781,7 +744,6 @@
                         A. まったく問題ありません。塗装作業はすべて家の屋外（外回り）のみで行うため、お出かけ中も問題なく進行が可能です。しっかりと防犯用の戸締まりだけお願いいたします。
                     </div>
                 </div>
-                <!-- 質問3 -->
                 <div class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
                     <button onclick="toggleAccordion('faq3')" class="w-full p-5 text-left font-extrabold text-slate-900 text-sm sm:text-base flex justify-between items-center bg-slate-50">
                         <span>Q. 隣のお家との間隔が狭いのですが、塗装できますか？</span>
@@ -820,7 +782,6 @@
                     </div>
                 </div>
 
-                <!-- プレースホルダーマップ -->
                 <div class="bg-white p-4 rounded-3xl border border-slate-200 shadow-sm space-y-4">
                     <div class="bg-blue-100 rounded-2xl h-64 flex flex-col justify-center items-center text-slate-500 p-6 text-center space-y-2">
                         <i class="fa-solid fa-map-location-dot text-4xl text-blue-900"></i>
@@ -841,15 +802,12 @@
             </div>
 
             <div class="max-w-3xl mx-auto px-4 py-16">
-                <!-- お問い合わせフォーム -->
                 <form id="kikuchi-form" onsubmit="handleFormSubmit(event)" class="bg-white p-8 rounded-3xl border border-slate-200 shadow-xl space-y-6">
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <!-- お名前 -->
                         <div class="space-y-1">
                             <label class="text-xs font-bold text-slate-500 block">お名前 <span class="text-red-500">*</span></label>
                             <input type="text" required class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:border-blue-900 outline-none transition" placeholder="菊池 太郎">
                         </div>
-                        <!-- ご住所 -->
                         <div class="space-y-1">
                             <label class="text-xs font-bold text-slate-500 block">ご住所（市区町村まで） <span class="text-red-500">*</span></label>
                             <input type="text" required class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:border-blue-900 outline-none transition" placeholder="◯◯市◯◯町">
@@ -857,19 +815,16 @@
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <!-- 電話番号 -->
                         <div class="space-y-1">
                             <label class="text-xs font-bold text-slate-500 block">電話番号 <span class="text-red-500">*</span></label>
                             <input type="tel" required class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:border-blue-900 outline-none transition" placeholder="09012345678">
                         </div>
-                        <!-- メールアドレス -->
                         <div class="space-y-1">
                             <label class="text-xs font-bold text-slate-500 block">メールアドレス</label>
                             <input type="email" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:border-blue-900 outline-none transition" placeholder="name@example.com">
                         </div>
                     </div>
 
-                    <!-- お問合せ項目 -->
                     <div class="space-y-1">
                         <label class="text-xs font-bold text-slate-500 block">ご相談・お問合せ項目 <span class="text-red-500">*</span></label>
                         <select required class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:border-blue-900 outline-none transition bg-white">
@@ -881,13 +836,11 @@
                         </select>
                     </div>
 
-                    <!-- メッセージ -->
                     <div class="space-y-1">
                         <label class="text-xs font-bold text-slate-500 block">ご希望、メッセージなど</label>
                         <textarea class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:border-blue-900 outline-none transition h-32" placeholder="気になる点や、工事の時期のご希望がございましたらご記入ください"></textarea>
                     </div>
 
-                    <!-- 送信完了画面を再現するモーダル(alertを回避) -->
                     <div id="thank-you-box" class="hidden bg-emerald-50 border border-emerald-200 text-emerald-950 p-6 rounded-2xl text-center space-y-2">
                         <div class="text-2xl text-emerald-600"><i class="fa-solid fa-circle-check"></i></div>
                         <h4 class="font-extrabold text-base">お問合せを送信いたしました！</h4>
@@ -905,7 +858,6 @@
     <!-- フッター -->
     <footer class="bg-blue-950 text-white py-12 border-t-4 border-orange-500">
         <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-12 gap-12">
-            <!-- 会社情報 -->
             <div class="lg:col-span-5 space-y-4">
                 <div class="flex items-center gap-3">
                     <div class="bg-white text-blue-950 p-2 rounded-lg">
@@ -923,12 +875,11 @@
                 </div>
             </div>
 
-            <!-- ナビゲーションリンク -->
             <div class="lg:col-span-3 grid grid-cols-2 gap-4 text-xs font-bold text-slate-300">
                 <div class="space-y-3">
                     <a href="#" onclick="navigateTo('home'); return false;" class="block hover:text-white transition">ホーム</a>
                     <a href="#" onclick="navigateTo('about'); return false;" class="block hover:text-white transition">会社案内</a>
-                    <a href="#" onclick="navigateTo('wall'); return false;" class="block hover:text-white transition">外壁セルフ診断</a>
+                    <a href="#" onclick="navigateTo('wall'); return false;" class="block hover:text-white transition">我が家の外壁「セルフ診断」</a>
                     <a href="#" onclick="navigateTo('roof'); return false;" class="block hover:text-white transition">屋根塗装</a>
                 </div>
                 <div class="space-y-3">
@@ -939,7 +890,6 @@
                 </div>
             </div>
 
-            <!-- ミニマッププレースホルダー -->
             <div class="lg:col-span-4 space-y-4">
                 <span class="text-xs font-bold text-slate-300 block">アクセスマップ</span>
                 <div class="bg-white/10 rounded-xl h-36 flex justify-center items-center text-slate-400 border border-white/10 text-xs">
@@ -957,21 +907,17 @@
     <script>
         // SPA 画面移動制御
         function navigateTo(pageId) {
-            // 全てのページセクションから active クラスを排除
             const sections = document.querySelectorAll('.page-section');
             sections.forEach(sec => sec.classList.remove('active'));
 
-            // 対象ページに active クラスを付与
             const target = document.getElementById(`page-${pageId}`);
             if (target) {
                 target.classList.add('active');
             }
 
-            // モバイルメニューを自動的に折りたたむ
             document.getElementById('mobile-menu').classList.add('hidden');
             document.getElementById('mobile-menu-icon').className = "fa-solid fa-bars";
 
-            // トップへスクロール
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -1028,16 +974,13 @@
 
         // 施工実績フィルタリング制御
         function filterWorks(category) {
-            // タブデザインの変更
             const tabs = document.querySelectorAll('.work-tab');
             tabs.forEach(tab => {
                 tab.className = "work-tab bg-white text-slate-700 font-bold text-xs px-5 py-2 rounded-full border border-slate-200";
             });
 
-            // 選択されたタブのアクティブ色変更
             event.currentTarget.className = "work-tab bg-blue-950 text-white font-bold text-xs px-5 py-2 rounded-full shadow-sm";
 
-            // カードの絞り込み表示
             const cards = document.querySelectorAll('.work-card');
             cards.forEach(card => {
                 if (category === 'all' || card.getAttribute('data-category') === category) {
@@ -1048,14 +991,13 @@
             });
         }
 
-        // お問い合わせフォームシミュレート
+        // お問い合わせフォーム送信シミュレート
         function handleFormSubmit(e) {
             e.preventDefault();
             const thankBox = document.getElementById('thank-you-box');
             thankBox.classList.remove('hidden');
-            e.target.reset(); // フォーム項目をリセット
+            e.target.reset();
 
-            // モーダルが見えるように数秒待ってから上部にスクロール
             setTimeout(() => {
                 thankBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }, 100);
@@ -1063,12 +1005,3 @@
     </script>
 </body>
 </html>
-```
-eof
-
-### 📋 今回の変更点
-*   **ページタイトルの書き換え**: 3ページ目の大見出しを、ご指定の **『我が家の外壁「塗り替えセルフ診断」』** へ変更しました。
-*   **サイト内ナビゲーションとの調和**: ヘッダーナビゲーションのドロップダウン、モバイル用メニュー、およびフッターの各リンク文字について、文字幅のバランスを崩さないようコンパクトに「外壁セルフ診断」へと自然に統一し、リンクをクリックすると自己診断ページへ美しく遷移するように設定いたしました。
-*   **その他の変更箇所を100%キープ**: 全ページのテキスト調整や、これまで設定したすべてのローカルPNG画像ファイル（`mokuzoujyutaku1.png` や Before/After 画像など）は一切変わらずそのままで、安心してお使いいただけます。
-
-右側のプレビュー画面、または手元のパソコンでリロードして、ヘッダーの「塗装メニュー」＞「外壁セルフ診断」から、新しいタイトルでの美しいページ構成をご確認ください！
