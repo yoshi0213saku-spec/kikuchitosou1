@@ -1,159 +1,1191 @@
-<!-- ... existing code ... -->
-            <!-- 右カラム：親方のビジュアルイメージ -->
-            <div class="lg:col-span-5 relative flex justify-center">
-                <div class="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-8 border-white/20 shadow-2xl">
-                    <!-- 住宅の外観画像に差し替え（ファイル名：mokuzoujyutaku1.png） -->
-                    <img src="mokuzoujyutaku1.png" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=600&q=80';" alt="住宅外観" class="w-full h-full object-cover">
-                    <!-- オーバーレイ文言（文字・色合い・構成は変更なし） -->
-                    <div class="absolute bottom-4 left-0 right-0 bg-blue-950/90 text-white text-center py-2 px-4 backdrop-blur-sm">
-                        <p class="text-sm font-bold">代表・一級塗装技能士</p>
-                        <p class="text-base font-extrabold text-orange-400">菊池 ◯◯ (親方)</p>
-                    </div>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>菊池塗装店 - 一級塗装技能士の親方直接施工</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Noto+Sans+JP:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" defer></script>
+    <style>
+        body {
+            font-family: 'Noto Sans JP', 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .page-section {
+            display: none;
+        }
+        .page-section.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+
+    <!-- ヘッダーエリア -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <!-- 上部ミニバー -->
+        <div class="bg-blue-950 text-white py-2 px-4 text-xs">
+            <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+                <p class="font-medium text-center sm:text-left">地域密着の塗装店 | 外壁塗装・屋根塗装のことならお任せください</p>
+                <div class="flex items-center gap-4">
+                    <span class="flex items-center gap-1"><i class="fa-solid fa-clock"></i> 受付 8:00〜18:00 (日曜定休)</span>
                 </div>
             </div>
         </div>
-    </section>
-<!-- ... existing code ... -->
-            <!-- Before/After 事例リスト -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- 事例1 -->
-                <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 shadow-sm">
-                    <!-- Before/After スライダー風表示 -->
-                    <div class="grid grid-cols-2 gap-0.5 relative">
-                        <div class="relative">
-                            <img src="kabe_mae_1.png" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=300&q=80';" alt="Before" class="w-full h-32 object-cover">
-                            <span class="absolute top-2 left-2 bg-black/60 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">Before</span>
-                        </div>
-                        <div class="relative">
-                            <img src="kabe_ato_1.png" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=300&q=80';" alt="After" class="w-full h-32 object-cover">
-                            <span class="absolute top-2 left-2 bg-orange-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">After</span>
+
+        <!-- メインヘッダー -->
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- ロゴ -->
+            <a href="#" onclick="navigateTo('home'); return false;" class="flex items-center gap-3">
+                <div class="bg-blue-900 text-white p-2 rounded-lg">
+                    <i class="fa-solid fa-paint-roller text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-black text-blue-950 tracking-wider">菊池塗装店</h1>
+                    <p class="text-[10px] font-bold text-orange-600 tracking-widest uppercase">親方が責任施工</p>
+                </div>
+            </a>
+
+            <!-- デスクトップ用ナビゲーション -->
+            <nav class="hidden lg:flex items-center gap-1 text-sm font-bold text-slate-600">
+                <a href="#" onclick="navigateTo('home'); return false;" class="px-3 py-2 hover:text-blue-900 transition">ホーム</a>
+                <a href="#" onclick="navigateTo('about'); return false;" class="px-3 py-2 hover:text-blue-900 transition">会社案内</a>
+                
+                <!-- プランメニューのドロップダウン風 -->
+                <div class="relative group">
+                    <button class="px-3 py-2 hover:text-blue-900 transition flex items-center gap-1">
+                        塗装メニュー <i class="fa-solid fa-chevron-down text-xs"></i>
+                    </button>
+                    <div class="absolute top-full left-0 bg-white shadow-xl border border-slate-100 rounded-xl py-2 w-48 hidden group-hover:block z-50">
+                        <a href="#" onclick="navigateTo('wall'); return false;" class="block px-4 py-2 hover:bg-slate-50 hover:text-blue-900">外壁塗装</a>
+                        <a href="#" onclick="navigateTo('roof'); return false;" class="block px-4 py-2 hover:bg-slate-50 hover:text-blue-900">屋根塗装</a>
+                        <a href="#" onclick="navigateTo('other'); return false;" class="block px-4 py-2 hover:bg-slate-50 hover:text-blue-900">その他の工事</a>
+                    </div>
+                </div>
+
+                <a href="#" onclick="navigateTo('works'); return false;" class="px-3 py-2 hover:text-blue-900 transition">施工事例</a>
+                <a href="#" onclick="navigateTo('flow'); return false;" class="px-3 py-2 hover:text-blue-900 transition">工事の流れ</a>
+                <a href="#" onclick="navigateTo('faq'); return false;" class="px-3 py-2 hover:text-blue-900 transition">よくある質問</a>
+                <a href="#" onclick="navigateTo('area'); return false;" class="px-3 py-2 hover:text-blue-900 transition">対応エリア</a>
+            </nav>
+
+            <!-- 右側アクションボタン -->
+            <div class="hidden md:flex items-center gap-4">
+                <div class="text-right">
+                    <p class="text-[10px] font-bold text-slate-500">見積無料！お気軽にお電話ください</p>
+                    <a href="tel:09012345678" class="text-lg font-black text-blue-950 flex items-center gap-1 justify-end hover:text-blue-800">
+                        <i class="fa-solid fa-phone text-orange-600"></i> 090-1234-5678
+                    </a>
+                </div>
+                <a href="#" onclick="navigateTo('contact'); return false;" class="bg-orange-600 hover:bg-orange-700 text-white font-bold px-5 py-2.5 rounded-xl transition shadow-md shadow-orange-600/20 flex items-center gap-2 text-sm">
+                    <i class="fa-solid fa-envelope"></i> 無料見積もり
+                </a>
+            </div>
+
+            <!-- モバイル用メニューボタン -->
+            <button onclick="toggleMobileMenu()" class="lg:hidden text-slate-700 text-2xl focus:outline-none">
+                <i class="fa-solid fa-bars" id="mobile-menu-icon"></i>
+            </button>
+        </div>
+
+        <!-- モバイル用ナビゲーションメニュー -->
+        <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-100 bg-white">
+            <div class="px-4 py-3 flex flex-col gap-2 font-bold text-slate-700">
+                <a href="#" onclick="navigateTo('home'); return false;" class="py-2 border-b border-slate-50">ホーム</a>
+                <a href="#" onclick="navigateTo('about'); return false;" class="py-2 border-b border-slate-50">会社案内・親方のこだわり</a>
+                <a href="#" onclick="navigateTo('wall'); return false;" class="py-2 border-b border-slate-50 pl-4 text-blue-900"><i class="fa-solid fa-chevron-right text-xs mr-2"></i>外壁塗装プラン</a>
+                <a href="#" onclick="navigateTo('roof'); return false;" class="py-2 border-b border-slate-50 pl-4 text-blue-900"><i class="fa-solid fa-chevron-right text-xs mr-2"></i>屋根塗装・雨漏り防止</a>
+                <a href="#" onclick="navigateTo('other'); return false;" class="py-2 border-b border-slate-50 pl-4 text-blue-900"><i class="fa-solid fa-chevron-right text-xs mr-2"></i>その他の工事</a>
+                <a href="#" onclick="navigateTo('works'); return false;" class="py-2 border-b border-slate-50">施工事例</a>
+                <a href="#" onclick="navigateTo('flow'); return false;" class="py-2 border-b border-slate-50">安心の工事の流れ</a>
+                <a href="#" onclick="navigateTo('faq'); return false;" class="py-2 border-b border-slate-50">よくある質問</a>
+                <a href="#" onclick="navigateTo('area'); return false;" class="py-2 border-b border-slate-50">対応エリア・アクセス</a>
+                <a href="#" onclick="navigateTo('contact'); return false;" class="py-3 mt-2 bg-orange-600 text-white text-center rounded-xl shadow-md">無料見積もり・お問い合わせ</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- ==========================================
+             【1ページ目】ホーム（トップページ）
+             ========================================== -->
+        <section id="page-home" class="page-section active">
+            <!-- ヒーローセクション -->
+            <div class="bg-gradient-to-br from-blue-950 to-blue-900 text-white py-16 px-4 relative overflow-hidden">
+                <!-- 装飾用背景パターン -->
+                <div class="absolute inset-0 opacity-10">
+                    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="1"/>
+                            </pattern>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#grid)" />
+                    </svg>
+                </div>
+
+                <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+                    <!-- 左カラム：キャッチコピー -->
+                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                        <p class="inline-block bg-orange-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest">
+                            自社施工・地域密着
+                        </p>
+                        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">
+                            住まいを長く、美しく。<br>
+                            <span class="text-orange-400">親方が最初から最後まで責任施工</span>
+                        </h2>
+                        <p class="text-slate-300 text-base md:text-lg max-w-2xl mx-auto lg:mx-0">
+                            小さな塗装店だからこそできる、丁寧な仕事とまごころを込めた塗装をお約束します。中間マージンをカットした安心価格で、一級技能士の技術をお届けします。
+                        </p>
+                        <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-4">
+                            <a href="#" onclick="navigateTo('contact'); return false;" class="bg-orange-600 hover:bg-orange-700 text-white text-base font-bold px-8 py-4 rounded-2xl transition shadow-lg shadow-orange-600/30 flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-calculator"></i> 無料見積はこちら <i class="fa-solid fa-chevron-right text-xs"></i>
+                            </a>
+                            <a href="#" onclick="navigateTo('about'); return false;" class="bg-white/10 hover:bg-white/20 text-white text-base font-bold px-8 py-4 rounded-2xl transition border border-white/20 flex items-center justify-center gap-2 backdrop-blur-sm">
+                                私たちのこだわりを見る
+                            </a>
                         </div>
                     </div>
-                    <div class="p-4 space-y-2">
-                        <p class="text-xs text-slate-500">◯◯市 T様邸（築18年）</p>
-<!-- ... existing code ... -->
-                <!-- 事例2 -->
-                <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 shadow-sm">
-                    <div class="grid grid-cols-2 gap-0.5 relative">
-                        <div class="relative">
-                            <img src="kabe_mae_2.png" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=300&q=80';" alt="Before" class="w-full h-32 object-cover">
-                            <span class="absolute top-2 left-2 bg-black/60 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">Before</span>
-                        </div>
-                        <div class="relative">
-                            <img src="kabe_ato_2.png" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=300&q=80';" alt="After" class="w-full h-32 object-cover">
-                            <span class="absolute top-2 left-2 bg-orange-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">After</span>
+
+                    <!-- 右カラム：親方のビジュアルイメージ（指定の mokuzoujyutaku1.png へ変更） -->
+                    <div class="lg:col-span-5 relative flex justify-center">
+                        <div class="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-8 border-white/20 shadow-2xl">
+                            <img src="mokuzoujyutaku1.png" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=600&q=80';" alt="住宅外観" class="w-full h-full object-cover">
+                            <!-- オーバーレイ文言 -->
+                            <div class="absolute bottom-4 left-0 right-0 bg-blue-950/90 text-white text-center py-2 px-4 backdrop-blur-sm">
+                                <p class="text-sm font-bold">代表・一級塗装技能士</p>
+                                <p class="text-base font-extrabold text-orange-400">菊池 ◯◯ (親方)</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="p-4 space-y-2">
-                        <p class="text-xs text-slate-500">◯◯市 S様邸（築22年）</p>
-<!-- ... existing code ... -->
-            <!-- 事例グリッド -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- 事例1 -->
-                <div class="work-card bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 shadow-sm flex flex-col justify-between" data-category="wall">
-                    <div>
-                        <div class="grid grid-cols-2 gap-0.5 relative">
-                            <div class="relative">
-                                <img src="kabe_mae_1.png" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=400&q=80';" alt="Before" class="w-full h-40 object-cover">
-                                <span class="absolute top-2 left-2 bg-black/60 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">Before</span>
+                </div>
+            </div>
+
+            <!-- 4つの強み（見積無料、自社施工、地域密着、安心価格） -->
+            <section class="max-w-7xl mx-auto px-4 py-12 -mt-8 relative z-20">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- 強み1 -->
+                    <div class="bg-white p-6 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-4 hover:-translate-y-1 transition duration-300">
+                        <div class="bg-blue-50 text-blue-950 p-4 rounded-xl text-2xl shrink-0">
+                            <i class="fa-solid fa-calculator text-blue-900"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-extrabold text-slate-900">見積無料</h3>
+                            <p class="text-xs text-slate-500 mt-1">しつこい営業はありません</p>
+                        </div>
+                    </div>
+                    <!-- 強み2 -->
+                    <div class="bg-white p-6 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-4 hover:-translate-y-1 transition duration-300">
+                        <div class="bg-blue-50 text-blue-950 p-4 rounded-xl text-2xl shrink-0">
+                            <i class="fa-solid fa-user-check text-blue-900"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-extrabold text-slate-900">自社施工</h3>
+                            <p class="text-xs text-slate-500 mt-1">親方が直接責任対応</p>
+                        </div>
+                    </div>
+                    <!-- 強み3 -->
+                    <div class="bg-white p-6 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-4 hover:-translate-y-1 transition duration-300">
+                        <div class="bg-blue-50 text-blue-950 p-4 rounded-xl text-2xl shrink-0">
+                            <i class="fa-solid fa-house-chimney-window text-blue-900"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-extrabold text-slate-900">地域密着</h3>
+                            <p class="text-xs text-slate-500 mt-1">地元のお客様を大切に</p>
+                        </div>
+                    </div>
+                    <!-- 強み4 -->
+                    <div class="bg-white p-6 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-4 hover:-translate-y-1 transition duration-300">
+                        <div class="bg-blue-50 text-blue-950 p-4 rounded-xl text-2xl shrink-0">
+                            <i class="fa-solid fa-yen-sign text-blue-900"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-extrabold text-slate-900">安心価格</h3>
+                            <p class="text-xs text-slate-500 mt-1">無駄な費用を全面カット</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 私たちにお任せくださいセクション -->
+            <section class="max-w-7xl mx-auto px-4 py-12">
+                <div class="text-center space-y-2 mb-12">
+                    <p class="text-sm font-bold text-blue-900 uppercase tracking-widest">— 私たちにお任せください —</p>
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-950">住まいを守るトータル塗装メニュー</h2>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+                    <!-- 外壁塗装 -->
+                    <div onclick="navigateTo('wall')" class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition cursor-pointer border border-slate-100 flex flex-col h-full">
+                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=400&q=80" alt="外壁塗装" class="w-full h-36 object-cover">
+                        <div class="p-4 text-center flex-grow flex flex-col justify-between">
+                            <div>
+                                <h3 class="font-extrabold text-slate-950 text-base">外壁塗装</h3>
+                                <p class="text-xs text-slate-500 mt-2">建物を美しく守る塗り替え工事</p>
                             </div>
-                            <div class="relative">
-                                <img src="kabe_ato_1.png" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=400&q=80';" alt="After" class="w-full h-40 object-cover">
-                                <span class="absolute top-2 left-2 bg-orange-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">After</span>
+                            <span class="text-blue-900 text-xs font-bold mt-4 inline-block">詳しく見る <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
+                        </div>
+                    </div>
+                    <!-- 屋根塗装 -->
+                    <div onclick="navigateTo('roof')" class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition cursor-pointer border border-slate-100 flex flex-col h-full">
+                        <img src="https://images.unsplash.com/photo-1628744448840-55bdb2497bd4?auto=format&fit=crop&w=400&q=80" alt="屋根塗装" class="w-full h-36 object-cover">
+                        <div class="p-4 text-center flex-grow flex flex-col justify-between">
+                            <div>
+                                <h3 class="font-extrabold text-slate-950 text-base">屋根塗装</h3>
+                                <p class="text-xs text-slate-500 mt-2">屋根の劣化を防ぎ雨漏りを予防</p>
+                            </div>
+                            <span class="text-blue-900 text-xs font-bold mt-4 inline-block">詳しく見る <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
+                        </div>
+                    </div>
+                    <!-- 木部塗装 -->
+                    <div onclick="navigateTo('other')" class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition cursor-pointer border border-slate-100 flex flex-col h-full">
+                        <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=400&q=80" alt="木部塗装" class="w-full h-36 object-cover">
+                        <div class="p-4 text-center flex-grow flex flex-col justify-between">
+                            <div>
+                                <h3 class="font-extrabold text-slate-950 text-base">木部塗装</h3>
+                                <p class="text-xs text-slate-500 mt-2">破風・軒天・ウッドデッキの塗装</p>
+                            </div>
+                            <span class="text-blue-900 text-xs font-bold mt-4 inline-block">詳しく見る <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
+                        </div>
+                    </div>
+                    <!-- 鉄部塗装 -->
+                    <div onclick="navigateTo('other')" class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition cursor-pointer border border-slate-100 flex flex-col h-full">
+                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=400&q=80" alt="鉄部塗装" class="w-full h-36 object-cover">
+                        <div class="p-4 text-center flex-grow flex flex-col justify-between">
+                            <div>
+                                <h3 class="font-extrabold text-slate-950 text-base">鉄部塗装</h3>
+                                <p class="text-xs text-slate-500 mt-2">手すり・雨樋・鉄骨などの防サビ塗装</p>
+                            </div>
+                            <span class="text-blue-900 text-xs font-bold mt-4 inline-block">詳しく見る <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
+                        </div>
+                    </div>
+                    <!-- 防水工事 -->
+                    <div onclick="navigateTo('other')" class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition cursor-pointer border border-slate-100 flex flex-col h-full">
+                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=400&q=80" alt="防水工事" class="w-full h-36 object-cover">
+                        <div class="p-4 text-center flex-grow flex flex-col justify-between">
+                            <div>
+                                <h3 class="font-extrabold text-slate-950 text-base">防水工事</h3>
+                                <p class="text-xs text-slate-500 mt-2">ベランダ・バルコニーの防水</p>
+                            </div>
+                            <span class="text-blue-900 text-xs font-bold mt-4 inline-block">詳しく見る <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 施工実績（簡易表示） -->
+            <section class="bg-slate-100 py-16 px-4">
+                <div class="max-w-7xl mx-auto space-y-12">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <div class="text-center md:text-left space-y-1">
+                            <p class="text-sm font-bold text-blue-900 tracking-wider">施工事例</p>
+                            <h2 class="text-2xl sm:text-3xl font-black text-slate-950">直近の工事・施工実績</h2>
+                        </div>
+                        <a href="#" onclick="navigateTo('works'); return false;" class="bg-white hover:bg-slate-50 text-blue-950 border border-slate-200 font-bold px-6 py-2.5 rounded-xl transition text-sm flex items-center gap-2 shadow-sm">
+                            一覧はこちら <i class="fa-solid fa-chevron-right text-xs"></i>
+                        </a>
+                    </div>
+
+                    <!-- Before/After 事例リスト -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <!-- 事例1 (指定の kabe_mae_1.png / kabe_ato_1.png) -->
+                        <div class="bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm">
+                            <div class="grid grid-cols-2 gap-0.5 relative">
+                                <div class="relative">
+                                    <img src="kabe_mae_1.png" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=300&q=80';" alt="Before" class="w-full h-32 object-cover">
+                                    <span class="absolute top-2 left-2 bg-black/60 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">Before</span>
+                                </div>
+                                <div class="relative">
+                                    <img src="kabe_ato_1.png" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=300&q=80';" alt="After" class="w-full h-32 object-cover">
+                                    <span class="absolute top-2 left-2 bg-orange-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">After</span>
+                                </div>
+                            </div>
+                            <div class="p-4 space-y-2">
+                                <p class="text-xs text-slate-500">◯◯市 T様邸（築18年）</p>
+                                <h3 class="font-extrabold text-slate-950 text-sm">外壁塗装（シリコン）</h3>
+                                <div class="text-[11px] text-slate-500 flex justify-between border-t border-slate-50 pt-2">
+                                    <span>工期：14日間</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="p-6">
-                            <span class="bg-blue-100 text-blue-900 text-[10px] font-bold px-2 py-0.5 rounded">外壁塗装</span>
-<!-- ... existing code ... -->
-                <!-- 事例2 -->
-                <div class="work-card bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 shadow-sm flex flex-col justify-between" data-category="wall">
-                    <div>
-                        <div class="grid grid-cols-2 gap-0.5 relative">
-                            <div class="relative">
-                                <img src="kabe_mae_2.png" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=400&q=80';" alt="Before" class="w-full h-40 object-cover">
-                                <span class="absolute top-2 left-2 bg-black/60 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">Before</span>
+
+                        <!-- 事例2 (指定の kabe_mae_2.png / kabe_ato_2.png) -->
+                        <div class="bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm">
+                            <div class="grid grid-cols-2 gap-0.5 relative">
+                                <div class="relative">
+                                    <img src="kabe_mae_2.png" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=300&q=80';" alt="Before" class="w-full h-32 object-cover">
+                                    <span class="absolute top-2 left-2 bg-black/60 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">Before</span>
+                                </div>
+                                <div class="relative">
+                                    <img src="kabe_ato_2.png" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=300&q=80';" alt="After" class="w-full h-32 object-cover">
+                                    <span class="absolute top-2 left-2 bg-orange-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">After</span>
+                                </div>
                             </div>
-                            <div class="relative">
-                                <img src="kabe_ato_2.png" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=400&q=80';" alt="After" class="w-full h-40 object-cover">
-                                <span class="absolute top-2 left-2 bg-orange-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">After</span>
+                            <div class="p-4 space-y-2">
+                                <p class="text-xs text-slate-500">◯◯市 S様邸（築22年）</p>
+                                <h3 class="font-extrabold text-slate-950 text-sm">外壁・屋根塗装</h3>
+                                <div class="text-[11px] text-slate-500 flex justify-between border-t border-slate-50 pt-2">
+                                    <span>工期：16日間</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="p-6">
-                            <span class="bg-blue-100 text-blue-900 text-[10px] font-bold px-2 py-0.5 rounded">外壁塗装</span>
-<!-- ... existing code ... -->
+
+                        <!-- 事例3 -->
+                        <div class="bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm">
+                            <div class="grid grid-cols-2 gap-0.5 relative">
+                                <div class="relative">
+                                    <img src="https://images.unsplash.com/photo-1628744448840-55bdb2497bd4?auto=format&fit=crop&w=300&q=80" alt="Before" class="w-full h-32 object-cover">
+                                    <span class="absolute top-2 left-2 bg-black/60 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">Before</span>
+                                </div>
+                                <div class="relative">
+                                    <img src="https://images.unsplash.com/photo-1628744448840-55bdb2497bd4?auto=format&fit=crop&w=300&q=80" alt="After" class="w-full h-32 object-cover">
+                                    <span class="absolute top-2 left-2 bg-orange-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">After</span>
+                                </div>
+                            </div>
+                            <div class="p-4 space-y-2">
+                                <p class="text-xs text-slate-500">◯◯町 屋根塗装（築15年）</p>
+                                <h3 class="font-extrabold text-slate-950 text-sm">屋根フッ素遮熱塗装</h3>
+                                <div class="text-[11px] text-slate-500 flex justify-between border-t border-slate-50 pt-2">
+                                    <span>工期：7日間</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 事例4 -->
+                        <div class="bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm">
+                            <div class="grid grid-cols-2 gap-0.5 relative">
+                                <div class="relative">
+                                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=300&q=80" alt="Before" class="w-full h-32 object-cover">
+                                    <span class="absolute top-2 left-2 bg-black/60 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">Before</span>
+                                </div>
+                                <div class="relative">
+                                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=300&q=80" alt="After" class="w-full h-32 object-cover">
+                                    <span class="absolute top-2 left-2 bg-orange-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">After</span>
+                                </div>
+                            </div>
+                            <div class="p-4 space-y-2">
+                                <p class="text-xs text-slate-500">◯◯市 Y様邸（築12年）</p>
+                                <h3 class="font-extrabold text-slate-950 text-sm">外壁ラジカル塗装</h3>
+                                <div class="text-[11px] text-slate-500 flex justify-between border-t border-slate-50 pt-2">
+                                    <span>工期：12日間</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 親方あいさつ＆お客様の声 -->
+            <section class="max-w-7xl mx-auto px-4 py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- 左：あいさつ -->
+                <div class="lg:col-span-5 bg-white p-8 rounded-3xl border border-slate-100 shadow-lg space-y-6">
+                    <div class="flex items-center gap-4">
+                        <div class="w-16 h-16 rounded-full overflow-hidden bg-blue-50 border border-slate-100 shrink-0">
+                            <i class="fa-solid fa-user-tie text-blue-900 text-4xl m-3"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-orange-600">一級塗装技能士</p>
+                            <h3 class="text-lg font-extrabold text-slate-900">代表：菊池 ◯◯</h3>
+                        </div>
+                    </div>
+                    <blockquote class="text-slate-600 text-sm leading-relaxed italic border-l-4 border-blue-900 pl-4">
+                        「この道30年、地元の皆様に支えられて塗装一筋で歩んできました。下請け任せの『丸投げ施工』は一切行いません。最初から最後まで私がハケを握り、お住まいと誠実に向き合います。」
+                    </blockquote>
+                    <button onclick="navigateTo('about')" class="text-blue-900 font-bold text-xs hover:underline flex items-center gap-1">
+                        親方のプロフィールをもっと見る <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    </button>
+                </div>
+
+                <!-- 右：お客様の声 -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="space-y-1">
+                        <p class="text-sm font-bold text-blue-900 tracking-wider">お客様の声</p>
+                        <h2 class="text-2xl sm:text-3xl font-black text-slate-950">喜びの声をいただきました！</h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm space-y-2">
+                            <div class="flex text-orange-400 gap-1 text-xs">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <h4 class="font-extrabold text-slate-900 text-sm">親切で丁寧な説明でした！</h4>
+                            <p class="text-xs text-slate-500 leading-relaxed">
+                                毎日作業前に『今日はこの部分を行います』と説明してくださり、進行状況がとてもよく分かりました。(◯◯市 T様)
+                            </p>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm space-y-2">
+                            <div class="flex text-orange-400 gap-1 text-xs">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <h4 class="font-extrabold text-slate-900 text-sm">見違えるようにきれいになりました</h4>
+                            <p class="text-xs text-slate-500 leading-relaxed">
+                                新築時のようにきれいな壁に仕上がり大満足です。近隣への挨拶やゴミの清掃まで丁寧でした。(◯◯市 S様)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 工事の流れ（簡易ステップ表示） -->
+            <section class="bg-slate-900 text-white py-16 px-4">
+                <div class="max-w-7xl mx-auto space-y-12">
+                    <div class="text-center space-y-1">
+                        <p class="text-sm font-bold text-orange-400 tracking-wider">— 工事の流れ —</p>
+                        <h2 class="text-2xl sm:text-3xl font-black">ご相談から完工までの流れ</h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6 relative">
+                        <!-- ステップ1 -->
+                        <div class="bg-white/5 border border-white/10 rounded-2xl p-5 text-center relative">
+                            <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-orange-600 text-white font-bold text-xs px-2.5 py-0.5 rounded-full">1</span>
+                            <div class="text-2xl mb-3 text-orange-400 mt-2"><i class="fa-solid fa-phone"></i></div>
+                            <h3 class="font-bold text-sm">お問合せ</h3>
+                            <p class="text-[10px] text-slate-400 mt-2">お気軽にご相談ください</p>
+                        </div>
+                        <!-- ステップ2 -->
+                        <div class="bg-white/5 border border-white/10 rounded-2xl p-5 text-center relative">
+                            <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-orange-600 text-white font-bold text-xs px-2.5 py-0.5 rounded-full">2</span>
+                            <div class="text-2xl mb-3 text-orange-400 mt-2"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                            <h3 class="font-bold text-sm">現地調査</h3>
+                            <p class="text-[10px] text-slate-400 mt-2">親方が隅々まで確認</p>
+                        </div>
+                        <!-- ステップ3 -->
+                        <div class="bg-white/5 border border-white/10 rounded-2xl p-5 text-center relative">
+                            <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-orange-600 text-white font-bold text-xs px-2.5 py-0.5 rounded-full">3</span>
+                            <div class="text-2xl mb-3 text-orange-400 mt-2"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+                            <h3 class="font-bold text-sm">お見積り</h3>
+                            <p class="text-[10px] text-slate-400 mt-2">明瞭なプランをご提示</p>
+                        </div>
+                        <!-- ステップ4 -->
+                        <div class="bg-white/5 border border-white/10 rounded-2xl p-5 text-center relative">
+                            <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-orange-600 text-white font-bold text-xs px-2.5 py-0.5 rounded-full">4</span>
+                            <div class="text-2xl mb-3 text-orange-400 mt-2"><i class="fa-solid fa-file-signature"></i></div>
+                            <h3 class="font-bold text-sm">ご契約</h3>
+                            <p class="text-[10px] text-slate-400 mt-2">内容にご納得のうえ契約</p>
+                        </div>
+                        <!-- ステップ5 -->
+                        <div class="bg-white/5 border border-white/10 rounded-2xl p-5 text-center relative">
+                            <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-orange-600 text-white font-bold text-xs px-2.5 py-0.5 rounded-full">5</span>
+                            <div class="text-2xl mb-3 text-orange-400 mt-2"><i class="fa-solid fa-brush"></i></div>
+                            <h3 class="font-bold text-sm">責任施工</h3>
+                            <p class="text-[10px] text-slate-400 mt-2">親方と職人が丁寧に施工</p>
+                        </div>
+                        <!-- ステップ6 -->
+                        <div class="bg-white/5 border border-white/10 rounded-2xl p-5 text-center relative">
+                            <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-orange-600 text-white font-bold text-xs px-2.5 py-0.5 rounded-full">6</span>
+                            <div class="text-2xl mb-3 text-orange-400 mt-2"><i class="fa-solid fa-circle-check"></i></div>
+                            <h3 class="font-bold text-sm">完工引渡</h3>
+                            <p class="text-[10px] text-slate-400 mt-2">保証と点検の実施</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- ==========================================
+             【2ページ目】会社案内・親方のこだわり
+             ========================================== -->
+        <section id="page-about" class="page-section">
+            <div class="bg-blue-950 text-white py-12 text-center">
+                <h2 class="text-3xl font-black">会社案内・親方のこだわり</h2>
+                <p class="text-slate-300 text-sm mt-2">代表自らがハケを握る、こだわりと誠実の職人魂</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto px-4 py-16 space-y-16">
+                <!-- 親方の生い立ち・理念 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80" alt="作業する代表" class="rounded-3xl shadow-lg">
+                    <div class="space-y-4">
+                        <span class="text-orange-600 font-extrabold text-xs">職人歴30年の熱意</span>
+                        <h3 class="text-2xl font-bold text-slate-950">「長持ちする塗装」しか行いません。</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            塗装工事は、一度塗ってしまえば手抜き工事であっても一見きれいに見えてしまいます。だからこそ、下地処理や3回塗りの塗膜の厚さなど、目に見えなくなる工程に職人の『良心』と『プライド』が試されます。
+                        </p>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            菊池塗装店では、数年後に『ここで塗って良かった』と思っていただくために、一切の妥協を排したまごころの塗装をお約束します。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 会社情報テーブル -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm space-y-6">
+                    <h3 class="text-xl font-bold text-slate-950 border-l-4 border-blue-900 pl-3">会社概要</h3>
+                    <div class="divide-y divide-slate-100 text-sm">
+                        <div class="grid grid-cols-3 py-4">
+                            <span class="font-bold text-slate-500">商号</span>
+                            <span class="col-span-2 text-slate-800">菊池塗装店</span>
+                        </div>
+                        <div class="grid grid-cols-3 py-4">
+                            <span class="font-bold text-slate-500">代表者名</span>
+                            <span class="col-span-2 text-slate-800">菊池 ◯◯ (一級塗装技能士)</span>
+                        </div>
+                        <div class="grid grid-cols-3 py-4">
+                            <span class="font-bold text-slate-500">所在地</span>
+                            <span class="col-span-2 text-slate-800">〒000-0000 ◯◯県◯◯市◯◯町1-2-3</span>
+                        </div>
+                        <div class="grid grid-cols-3 py-4">
+                            <span class="font-bold text-slate-500">電話番号</span>
+                            <span class="col-span-2 text-slate-800">090-1234-5678</span>
+                        </div>
+                        <div class="grid grid-cols-3 py-4">
+                            <span class="font-bold text-slate-500">事業内容</span>
+                            <span class="col-span-2 text-slate-800">外壁塗装、屋根塗装、雨漏り点検、各種防水工事、鉄部・木部防サビ塗装</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             【3ページ目】外壁塗装プラン
+             ========================================== -->
+        <section id="page-wall" class="page-section">
+            <div class="bg-blue-950 text-white py-12 text-center">
+                <h2 class="text-3xl font-black">外壁塗装プラン</h2>
+                <p class="text-slate-300 text-sm mt-2">美観を高め、大切な我が家の寿命をのばす確かな塗り替え</p>
+            </div>
+
+            <div class="max-w-5xl mx-auto px-4 py-16 space-y-16">
+                <!-- 外壁診断チェックシート (動的アクション) -->
+                <div class="bg-blue-50 p-8 rounded-3xl border border-blue-100 space-y-6">
+                    <div class="text-center space-y-2">
+                        <span class="bg-blue-200 text-blue-900 font-bold text-xs px-2.5 py-1 rounded-full uppercase">かんたん自己診断</span>
+                        <h3 class="text-xl font-black text-slate-900">我が家の外壁「塗り替えセルフ診断」</h3>
+                        <p class="text-slate-500 text-xs">劣化の症状を選択すると、下にアドバイスが表示されます</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <label class="flex items-start gap-3 p-4 bg-white rounded-xl shadow-sm border border-slate-100 cursor-pointer">
+                            <input type="checkbox" onchange="checkWallHealth()" value="1" class="wall-check mt-1 w-4 h-4 rounded text-blue-900">
+                            <div>
+                                <span class="font-bold text-sm text-slate-900">チョーキング現象</span>
+                                <p class="text-[10px] text-slate-400">壁を触ると手が白くなる</p>
+                            </div>
+                        </label>
+                        <label class="flex items-start gap-3 p-4 bg-white rounded-xl shadow-sm border border-slate-100 cursor-pointer">
+                            <input type="checkbox" onchange="checkWallHealth()" value="2" class="wall-check mt-1 w-4 h-4 rounded text-blue-900">
+                            <div>
+                                <span class="font-bold text-sm text-slate-900">ひび割れ (クラック)</span>
+                                <p class="text-[10px] text-slate-400">幅0.3mm以上のひびが入っている</p>
+                            </div>
+                        </label>
+                        <label class="flex items-start gap-3 p-4 bg-white rounded-xl shadow-sm border border-slate-100 cursor-pointer">
+                            <input type="checkbox" onchange="checkWallHealth()" value="3" class="wall-check mt-1 w-4 h-4 rounded text-blue-900">
+                            <div>
+                                <span class="font-bold text-sm text-slate-900">コケ・カビの発生</span>
+                                <p class="text-[10px] text-slate-400">日当たりの悪い場所が緑色に汚れている</p>
+                            </div>
+                        </label>
+                        <label class="flex items-start gap-3 p-4 bg-white rounded-xl shadow-sm border border-slate-100 cursor-pointer">
+                            <input type="checkbox" onchange="checkWallHealth()" value="4" class="wall-check mt-1 w-4 h-4 rounded text-blue-900">
+                            <div>
+                                <span class="font-bold text-sm text-slate-900">塗膜の浮き・剥がれ</span>
+                                <p class="text-[10px] text-slate-400">一部の塗装がポロポロ浮き剥げている</p>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div id="wall-diagnostic-result" class="bg-blue-900 text-white p-6 rounded-2xl text-center font-bold text-sm">
+                        お住まいの気になる部分のチェックボックスにチェックを入れてください。
+                    </div>
+                </div>
+
+                <!-- 塗装プラン比較 -->
+                <div class="space-y-6">
+                    <h3 class="text-xl font-bold text-slate-950 text-center">外壁塗装 おすすめ価格プラン (目安：延床30坪)</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <!-- プラン1 -->
+                        <div class="bg-white border border-slate-200 rounded-3xl p-6 shadow-sm space-y-4 relative flex flex-col justify-between">
+                            <div>
+                                <h4 class="font-black text-slate-900 text-lg">高耐久シリコンプラン</h4>
+                                <p class="text-slate-400 text-xs">最もコストパフォーマンスが良い人気No.1プラン</p>
+                                <div class="text-2xl font-black text-orange-600 my-4">55万円〜<span class="text-xs text-slate-500">（税込）</span></div>
+                                <ul class="space-y-2 text-xs text-slate-600">
+                                    <li><i class="fa-solid fa-check text-green-500"></i> 耐用年数：約10年〜12年</li>
+                                    <li><i class="fa-solid fa-check text-green-500"></i> カビ・汚れに強くバランス重視</li>
+                                </ul>
+                            </div>
+                            <button onclick="navigateTo('contact')" class="w-full py-2.5 bg-blue-950 hover:bg-blue-900 text-white font-bold rounded-xl text-xs mt-6">このプランで問い合わせる</button>
+                        </div>
+                        <!-- プラン2 -->
+                        <div class="bg-white border-2 border-orange-500 rounded-3xl p-6 shadow-md space-y-4 relative flex flex-col justify-between">
+                            <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-orange-500 text-white text-[10px] font-black px-4 py-1 rounded-full uppercase tracking-wider">親方のイチ押し</span>
+                            <div>
+                                <h4 class="font-black text-slate-900 text-lg">超耐久ラジカル制御プラン</h4>
+                                <p class="text-slate-400 text-xs">紫外線による塗膜の劣化を強力に制御する最新塗料</p>
+                                <div class="text-2xl font-black text-orange-600 my-4">65万円〜<span class="text-xs text-slate-500">（税込）</span></div>
+                                <ul class="space-y-2 text-xs text-slate-600">
+                                    <li><i class="fa-solid fa-check text-green-500"></i> 耐用年数：約13年〜15年</li>
+                                    <li><i class="fa-solid fa-check text-green-500"></i> 色褪せにくく綺麗な美観が長期持続</li>
+                                </ul>
+                            </div>
+                            <button onclick="navigateTo('contact')" class="w-full py-2.5 bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-xl text-xs mt-6">このプランで問い合わせる</button>
+                        </div>
+                        <!-- プラン3 -->
+                        <div class="bg-white border border-slate-200 rounded-3xl p-6 shadow-sm space-y-4 relative flex flex-col justify-between">
+                            <div>
+                                <h4 class="font-black text-slate-900 text-lg">最高峰フッ素・無機プラン</h4>
+                                <p class="text-slate-400 text-xs">ビル等でも使われる、メンテナンス周期を最長化させる最高級プラン</p>
+                                <div class="text-2xl font-black text-orange-600 my-4">80万円〜<span class="text-xs text-slate-500">（税込）</span></div>
+                                <ul class="space-y-2 text-xs text-slate-600">
+                                    <li><i class="fa-solid fa-check text-green-500"></i> 耐用年数：約18年〜20年</li>
+                                    <li><i class="fa-solid fa-check text-green-500"></i> 超低汚染性＆不燃性を兼ね備えた最高峰</li>
+                                </ul>
+                            </div>
+                            <button onclick="navigateTo('contact')" class="w-full py-2.5 bg-blue-950 hover:bg-blue-900 text-white font-bold rounded-xl text-xs mt-6">このプランで問い合わせる</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             【4ページ目】屋根塗装・雨漏り防止
+             ========================================== -->
+        <section id="page-roof" class="page-section">
+            <div class="bg-blue-950 text-white py-12 text-center">
+                <h2 class="text-3xl font-black">屋根塗装・雨漏り防止</h2>
+                <p class="text-slate-300 text-sm mt-2">雨風や太陽熱から住まいを守る、遮熱と強靭なガード膜</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto px-4 py-16 space-y-16">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-4">
+                        <h3 class="text-2xl font-extrabold text-slate-950">屋根は家の中で最も過酷な環境に晒されています</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            日中の直射日光による紫外線や熱、そして雨風を直接受け止めるのが屋根です。屋根の変色やコケを放置すると、建物の防水性が失われ、柱を弱らせる雨漏りへと直結します。外壁塗装と足場を共用して同時施工するのが一番おトクです。
+                        </p>
+                        <div class="bg-orange-50 p-4 rounded-2xl border border-orange-100 flex items-center gap-3">
+                            <i class="fa-solid fa-sun text-orange-600 text-2xl shrink-0"></i>
+                            <p class="text-xs text-orange-950 font-bold">
+                                エアコンの効きが良くなる「高遮熱塗料」を標準的に採用しております！
+                            </p>
+                        </div>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1628744448840-55bdb2497bd4?auto=format&fit=crop&w=600&q=80" alt="屋根塗装の様子" class="rounded-3xl shadow-lg">
+                </div>
+
+                <!-- 屋根プラン目安 -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm space-y-6">
+                    <h3 class="text-lg font-bold text-slate-950 border-l-4 border-blue-900 pl-3">屋根塗装参考価格プラン (屋根面積 80㎡基準)</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm">
+                        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100 space-y-2">
+                            <h4 class="font-extrabold text-slate-900">遮熱シリコンプラン</h4>
+                            <p class="text-orange-600 font-black text-lg">25万円〜</p>
+                            <p class="text-[11px] text-slate-500">まずはリーズナブルに屋根の遮熱性を向上させたい方におすすめ。</p>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100 space-y-2">
+                            <h4 class="font-extrabold text-slate-900">超遮熱フッ素プラン</h4>
+                            <p class="text-orange-600 font-black text-lg">35万円〜</p>
+                            <p class="text-[11px] text-slate-500">高い耐候性をもつフッ素により、長期間にわたって屋根表面を保護します。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             【5ページ目】その他の工事（木部・鉄部・防水）
+             ========================================== -->
+        <section id="page-other" class="page-section">
+            <div class="bg-blue-950 text-white py-12 text-center">
+                <h2 class="text-3xl font-black">その他の塗装・防水工事</h2>
+                <p class="text-slate-300 text-sm mt-2">付帯部分の小さなサビや腐食から住まいの崩壊を未然に防ぐ</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto px-4 py-16 space-y-12">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm space-y-3">
+                        <div class="text-blue-900 text-3xl"><i class="fa-solid fa-tree"></i></div>
+                        <h3 class="font-bold text-slate-900 text-base">木部塗装</h3>
+                        <p class="text-xs text-slate-500 leading-relaxed">
+                            破風板、軒天、木製フェンス、ウッドデッキなど。木を湿気から守る通気性のある特殊保護塗料を均一に塗り、腐食を徹底ガードします。
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm space-y-3">
+                        <div class="text-blue-900 text-3xl"><i class="fa-solid fa-shield-halved"></i></div>
+                        <h3 class="font-bold text-slate-900 text-base">鉄部サビガード</h3>
+                        <p class="text-xs text-slate-500 leading-relaxed">
+                            雨樋受け金具、鉄階段、手すりなど。表面のサビを「ケレン作業」で丁寧に削り落とした後に、超強力な防錆塗料をコートします。
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm space-y-3">
+                        <div class="text-blue-900 text-3xl"><i class="fa-solid fa-droplet-slash"></i></div>
+                        <h3 class="font-bold text-slate-900 text-base">バルコニー防水</h3>
+                        <p class="text-xs text-slate-500 leading-relaxed">
+                            ベランダ床のひび割れ部分。雨水がじわじわ家の中に侵入しないよう、下地調整からウレタン樹脂やウレタン防水層を再形成します。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             【6ページ目】施工事例
+             ========================================== -->
+        <section id="page-works" class="page-section">
+            <div class="bg-blue-950 text-white py-12 text-center">
+                <h2 class="text-3xl font-black">施工事例</h2>
+                <p class="text-slate-300 text-sm mt-2">菊池塗装店が手掛けた、自慢の施工事例をご紹介します</p>
+            </div>
+
+            <div class="max-w-6xl mx-auto px-4 py-16 space-y-12">
+                <!-- フィルタリング用の簡易タブ -->
+                <div class="flex justify-center gap-3 overflow-x-auto pb-4">
+                    <button onclick="filterWorks('all')" class="work-tab bg-blue-950 text-white font-bold text-xs px-5 py-2 rounded-full shadow-sm">すべて</button>
+                    <button onclick="filterWorks('wall')" class="work-tab bg-white text-slate-700 font-bold text-xs px-5 py-2 rounded-full border border-slate-200">外壁塗装</button>
+                    <button onclick="filterWorks('roof')" class="work-tab bg-white text-slate-700 font-bold text-xs px-5 py-2 rounded-full border border-slate-200">屋根・その他</button>
+                </div>
+
+                <!-- 事例グリッド -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- 事例1 (指定の kabe_mae_1.png / kabe_ato_1.png) -->
+                    <div class="work-card bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm flex flex-col justify-between" data-category="wall">
+                        <div>
+                            <div class="grid grid-cols-2 gap-0.5 relative">
+                                <div class="relative">
+                                    <img src="kabe_mae_1.png" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=400&q=80';" alt="Before" class="w-full h-40 object-cover">
+                                    <span class="absolute top-2 left-2 bg-black/60 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">Before</span>
+                                </div>
+                                <div class="relative">
+                                    <img src="kabe_ato_1.png" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=400&q=80';" alt="After" class="w-full h-40 object-cover">
+                                    <span class="absolute top-2 left-2 bg-orange-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">After</span>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <span class="bg-blue-100 text-blue-900 text-[10px] font-bold px-2 py-0.5 rounded">外壁塗装</span>
+                                <h3 class="text-base font-extrabold text-slate-900 mt-2">◯◯市 T様邸（築18年）</h3>
+                                <p class="text-xs text-slate-500 mt-2">劣化の進んだコーキングをすべて打ち直してから、シリコンプランで仕上げ。明るく爽やかなホワイト調に変わりました。</p>
+                            </div>
+                        </div>
+                        <div class="px-6 pb-6 pt-2 border-t border-slate-50 text-xs text-slate-500 flex justify-between">
+                            <span>使用塗料：シリコン</span>
+                            <span>工期：14日間</span>
+                        </div>
+                    </div>
+
+                    <!-- 事例2 (指定の kabe_mae_2.png / kabe_ato_2.png) -->
+                    <div class="work-card bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm flex flex-col justify-between" data-category="wall">
+                        <div>
+                            <div class="grid grid-cols-2 gap-0.5 relative">
+                                <div class="relative">
+                                    <img src="kabe_mae_2.png" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=400&q=80';" alt="Before" class="w-full h-40 object-cover">
+                                    <span class="absolute top-2 left-2 bg-black/60 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">Before</span>
+                                </div>
+                                <div class="relative">
+                                    <img src="kabe_ato_2.png" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=400&q=80';" alt="After" class="w-full h-40 object-cover">
+                                    <span class="absolute top-2 left-2 bg-orange-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">After</span>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <span class="bg-blue-100 text-blue-900 text-[10px] font-bold px-2 py-0.5 rounded">外壁塗装</span>
+                                <h3 class="text-base font-extrabold text-slate-900 mt-2">◯◯市 S様邸（築22年）</h3>
+                                <p class="text-xs text-slate-500 mt-2">フッ素遮熱プラン。紫外線が非常に強い立地でしたが、強力な遮熱保護層により室内の温度上昇も大きく抑制されました。</p>
+                            </div>
+                        </div>
+                        <div class="px-6 pb-6 pt-2 border-t border-slate-50 text-xs text-slate-500 flex justify-between">
+                            <span>使用塗料：フッ素</span>
+                            <span>工期：16日間</span>
+                        </div>
+                    </div>
+
+                    <!-- 事例3 -->
+                    <div class="work-card bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm flex flex-col justify-between" data-category="roof">
+                        <div>
+                            <div class="grid grid-cols-2 gap-0.5 relative">
+                                <div class="relative">
+                                    <img src="https://images.unsplash.com/photo-1628744448840-55bdb2497bd4?auto=format&fit=crop&w=400&q=80" alt="Before" class="w-full h-40 object-cover">
+                                    <span class="absolute top-2 left-2 bg-black/60 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">Before</span>
+                                </div>
+                                <div class="relative">
+                                    <img src="https://images.unsplash.com/photo-1628744448840-55bdb2497bd4?auto=format&fit=crop&w=400&q=80" alt="After" class="w-full h-40 object-cover">
+                                    <span class="absolute top-2 left-2 bg-orange-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">After</span>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <span class="bg-orange-100 text-orange-900 text-[10px] font-bold px-2 py-0.5 rounded">屋根塗装</span>
+                                <h3 class="text-base font-extrabold text-slate-900 mt-2">◯◯町 屋根塗装（築15年）</h3>
+                                <p class="text-xs text-slate-500 mt-2">劣化したスレート瓦に強固なプライマーを塗布。遮熱シリコンの丁寧な3度塗りで新築のような光沢を回復しました。</p>
+                            </div>
+                        </div>
+                        <div class="px-6 pb-6 pt-2 border-t border-slate-50 text-xs text-slate-500 flex justify-between">
+                            <span>使用塗料：シリコン</span>
+                            <span>工期：7日間</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             【7ページ目】安心の工事の流れ
+             ========================================== -->
+        <section id="page-flow" class="page-section">
+            <div class="bg-blue-950 text-white py-12 text-center">
+                <h2 class="text-3xl font-black">工事の流れ</h2>
+                <p class="text-slate-300 text-sm mt-2">最初から最後まで、親方がお住まいを丁寧にエスコート</p>
+            </div>
+
+            <div class="max-w-3xl mx-auto px-4 py-16">
+                <!-- 垂直型ステップ -->
+                <div class="space-y-12 relative before:absolute before:top-4 before:bottom-4 before:left-6 before:w-0.5 before:bg-slate-200">
+                    <!-- STEP 1 -->
+                    <div class="relative pl-16 space-y-2">
+                        <div class="absolute left-1.5 top-0 w-9.5 h-9.5 rounded-full bg-blue-900 text-white font-bold text-sm flex items-center justify-center shadow-md">1</div>
+                        <h3 class="text-lg font-extrabold text-slate-950">お問い合わせ＆ご相談</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            お電話・LINE・お問合せフォームからご連絡ください。しつこいセールス営業などは完全ゼロをお約束いたします。
+                        </p>
+                    </div>
+                    <!-- STEP 2 -->
+                    <div class="relative pl-16 space-y-2">
+                        <div class="absolute left-1.5 top-0 w-9.5 h-9.5 rounded-full bg-blue-900 text-white font-bold text-sm flex items-center justify-center shadow-md">2</div>
+                        <h3 class="text-lg font-extrabold text-slate-950">親方の現地診断</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            代表親方が直接、脚立やポールを用いて屋根の様子やひび割れ部分の正確な測定・診断を実施します。
+                        </p>
+                    </div>
+                    <!-- STEP 3 -->
+                    <div class="relative pl-16 space-y-2">
+                        <div class="absolute left-1.5 top-0 w-9.5 h-9.5 rounded-full bg-blue-900 text-white font-bold text-sm flex items-center justify-center shadow-md">3</div>
+                        <h3 class="text-lg font-extrabold text-slate-950">ご契約・近隣へのご挨拶</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            明瞭なお見積もりプランに納得の上でご契約。着工前には、お隣近所のご家庭へ直接親方が丁寧な挨拶を行います。
+                        </p>
+                    </div>
+                    <!-- STEP 4 -->
+                    <div class="relative pl-16 space-y-2">
+                        <div class="absolute left-1.5 top-0 w-9.5 h-9.5 rounded-full bg-blue-900 text-white font-bold text-sm flex items-center justify-center shadow-md">4</div>
+                        <h3 class="text-lg font-extrabold text-slate-950">徹底した責任施工</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            足場仮設、強力高圧洗浄、下地処理（ケレン・目地補修）、養生を行ってから、中塗りと上塗りを重ねた3層塗膜を確実に形成します。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             【8ページ目】よくある質問
+             ========================================== -->
+        <section id="page-faq" class="page-section">
+            <div class="bg-blue-950 text-white py-12 text-center">
+                <h2 class="text-3xl font-black">よくある質問（Q&A）</h2>
+                <p class="text-slate-300 text-sm mt-2">見積もりや施工についての不安に、親方が誠実にお答えします</p>
+            </div>
+
+            <div class="max-w-3xl mx-auto px-4 py-16 space-y-4">
+                <!-- 質問1 -->
+                <div class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+                    <button onclick="toggleAccordion('faq1')" class="w-full p-5 text-left font-extrabold text-slate-900 text-sm sm:text-base flex justify-between items-center bg-slate-50">
+                        <span>Q. 見積もりをお願いしたら、しつこく電話営業されたりしませんか？</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-400" id="faq1-icon"></i>
+                    </button>
+                    <div id="faq1-answer" class="hidden p-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100">
+                        A. はい、ご安心ください。菊池塗装店では、お客様に納得して選んでいただきたいため、強引な売り込みやしつこい電話営業は一切行っておりません。ご相談のみでも大歓迎です。
+                    </div>
+                </div>
+                <!-- 質問2 -->
+                <div class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+                    <button onclick="toggleAccordion('faq2')" class="w-full p-5 text-left font-extrabold text-slate-900 text-sm sm:text-base flex justify-between items-center bg-slate-50">
+                        <span>Q. 工事期間中、家をあけて外出しても大丈夫ですか？</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-400" id="faq2-icon"></i>
+                    </button>
+                    <div id="faq2-answer" class="hidden p-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100">
+                        A. まったく問題ありません。塗装作業はすべて家の屋外（外回り）のみで行うため、お出かけ中も問題なく進行が可能です。しっかりと防犯用の戸締まりだけお願いいたします。
+                    </div>
+                </div>
+                <!-- 質問3 -->
+                <div class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+                    <button onclick="toggleAccordion('faq3')" class="w-full p-5 text-left font-extrabold text-slate-900 text-sm sm:text-base flex justify-between items-center bg-slate-50">
+                        <span>Q. 隣のお家との間隔が狭いのですが、塗装できますか？</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-400" id="faq3-icon"></i>
+                    </button>
+                    <div id="faq3-answer" class="hidden p-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100">
+                        A. はい、対応可能です。近隣のお家にご迷惑がかからないよう、塗料飛散防止の専用養生シートを隙間なく二重に張るなど、細心の防護対策を行ったうえで作業を実施いたします。
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             【9ページ目】対応エリア・アクセス
+             ========================================== -->
+        <section id="page-area" class="page-section">
+            <div class="bg-blue-950 text-white py-12 text-center">
+                <h2 class="text-3xl font-black">対応エリア・アクセス</h2>
+                <p class="text-slate-300 text-sm mt-2">何かトラブルがあっても、車で一時間圏内ですぐに駆けつけます</p>
+            </div>
+
+            <div class="max-w-5xl mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-extrabold text-slate-950">地域密着へのこだわり</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        塗装が終わってからが本当のお付き合いのスタートだと考えています。万が一、台風などで不具合が出た場合にも「車で1時間以内」ですぐに対応に伺えるよう、私たちは対応エリアを地元の市区町村近郊に限定して施工しております。
+                    </p>
+                    <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100">
+                        <h4 class="font-bold text-blue-950 text-sm mb-2"><i class="fa-solid fa-location-dot"></i> 主な活動・対応エリア</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-white border border-slate-200 text-slate-700 text-xs px-3 py-1 rounded-full font-bold">◯◯市</span>
+                            <span class="bg-white border border-slate-200 text-slate-700 text-xs px-3 py-1 rounded-full font-bold">◯◯町</span>
+                            <span class="bg-white border border-slate-200 text-slate-700 text-xs px-3 py-1 rounded-full font-bold">◯◯村</span>
+                            <span class="bg-white border border-slate-200 text-slate-700 text-xs px-3 py-1 rounded-full font-bold">近隣周辺地域</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- プレースホルダーマップ -->
+                <div class="bg-white p-4 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+                    <div class="bg-blue-100 rounded-2xl h-64 flex flex-col justify-center items-center text-slate-500 p-6 text-center space-y-2">
+                        <i class="fa-solid fa-map-location-dot text-4xl text-blue-900"></i>
+                        <span class="font-bold text-sm text-slate-800">事務所所在地地図</span>
+                        <p class="text-xs">〒000-0000 ◯◯県◯◯市◯◯町1-2-3</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             【10ページ目】お問合せ（無料見積フォーム）
+             ========================================== -->
+        <section id="page-contact" class="page-section">
+            <div class="bg-blue-950 text-white py-12 text-center">
+                <h2 class="text-3xl font-black">無料お見積り・お問い合わせ</h2>
+                <p class="text-slate-300 text-sm mt-2">お住まいの劣化具合などの点検・見積もりは一切無料です</p>
+            </div>
+
+            <div class="max-w-3xl mx-auto px-4 py-16">
+                <!-- お問い合わせフォーム -->
+                <form id="kikuchi-form" onsubmit="handleFormSubmit(event)" class="bg-white p-8 rounded-3xl border border-slate-200 shadow-xl space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <!-- お名前 -->
+                        <div class="space-y-1">
+                            <label class="text-xs font-bold text-slate-500 block">お名前 <span class="text-red-500">*</span></label>
+                            <input type="text" required class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:border-blue-900 outline-none transition" placeholder="菊池 太郎">
+                        </div>
+                        <!-- ご住所 -->
+                        <div class="space-y-1">
+                            <label class="text-xs font-bold text-slate-500 block">ご住所（市区町村まで） <span class="text-red-500">*</span></label>
+                            <input type="text" required class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:border-blue-900 outline-none transition" placeholder="◯◯市◯◯町">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <!-- 電話番号 -->
+                        <div class="space-y-1">
+                            <label class="text-xs font-bold text-slate-500 block">電話番号 <span class="text-red-500">*</span></label>
+                            <input type="tel" required class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:border-blue-900 outline-none transition" placeholder="09012345678">
+                        </div>
+                        <!-- メールアドレス -->
+                        <div class="space-y-1">
+                            <label class="text-xs font-bold text-slate-500 block">メールアドレス</label>
+                            <input type="email" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:border-blue-900 outline-none transition" placeholder="name@example.com">
+                        </div>
+                    </div>
+
+                    <!-- お問合せ項目 -->
+                    <div class="space-y-1">
+                        <label class="text-xs font-bold text-slate-500 block">ご相談・お問合せ項目 <span class="text-red-500">*</span></label>
+                        <select required class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:border-blue-900 outline-none transition bg-white">
+                            <option value="">お問合せ内容をお選びください</option>
+                            <option value="wall">外壁塗装について詳しく聞きたい</option>
+                            <option value="roof">屋根塗装・雨漏り点検を依頼したい</option>
+                            <option value="checklist">セルフ診断の結果から相談したい</option>
+                            <option value="quote">無料お見積り・現地調査を希望</option>
+                            <option value="other">その他</option>
+                        </select>
+                    </div>
+
+                    <!-- メッセージ -->
+                    <div class="space-y-1">
+                        <label class="text-xs font-bold text-slate-500 block">ご希望、メッセージなど</label>
+                        <textarea class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:border-blue-900 outline-none transition h-32" placeholder="気になる点や、工事の時期のご希望がございましたらご記入ください"></textarea>
+                    </div>
+
+                    <!-- 送信完了画面を再現するモーダル(alertを回避) -->
+                    <div id="thank-you-box" class="hidden bg-emerald-50 border border-emerald-200 text-emerald-950 p-6 rounded-2xl text-center space-y-2">
+                        <div class="text-2xl text-emerald-600"><i class="fa-solid fa-circle-check"></i></div>
+                        <h4 class="font-extrabold text-base">お問合せを送信いたしました！</h4>
+                        <p class="text-xs">内容を確認のうえ、一両日中に親方より直接ご連絡をさせていただきます。</p>
+                    </div>
+
+                    <button type="submit" class="w-full py-4 bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-2xl transition shadow-lg shadow-orange-600/30 text-base flex justify-center items-center gap-2">
+                        <i class="fa-solid fa-paper-plane"></i> この内容で見積もり・お問合せする
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- フッター -->
+    <footer class="bg-blue-950 text-white py-12 border-t-4 border-orange-500">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-12 gap-12">
+            <!-- 会社情報 -->
+            <div class="lg:col-span-5 space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="bg-white text-blue-950 p-2 rounded-lg">
+                        <i class="fa-solid fa-paint-roller text-xl"></i>
+                    </div>
+                    <span class="text-lg font-black tracking-wider">菊池塗装店</span>
+                </div>
+                <p class="text-xs text-slate-300 leading-relaxed">
+                    私たちは地域の皆様の『頼んでよかった』のために、下請けに任せない誠実な一ハケ一ハケをお届けします。お住まいの外壁・屋根・木部鉄部でお悩みがありましたらお気軽に親方にご相談ください。
+                </p>
+                <div class="text-xs space-y-1.5 pt-2 text-slate-300">
+                    <p class="flex items-center gap-2"><i class="fa-solid fa-user-check text-orange-400"></i> 代表・一級塗装技能士：菊池 ◯◯</p>
+                    <p class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-orange-400"></i> 住所：〒000-0000 ◯◯県◯◯市◯◯町1-2-3</p>
+                    <p class="flex items-center gap-2"><i class="fa-solid fa-phone text-orange-400"></i> 電話：090-1234-5678</p>
+                </div>
+            </div>
+
+            <!-- ナビゲーションリンク -->
+            <div class="lg:col-span-3 grid grid-cols-2 gap-4 text-xs font-bold text-slate-300">
+                <div class="space-y-3">
+                    <a href="#" onclick="navigateTo('home'); return false;" class="block hover:text-white transition">ホーム</a>
+                    <a href="#" onclick="navigateTo('about'); return false;" class="block hover:text-white transition">会社案内</a>
+                    <a href="#" onclick="navigateTo('wall'); return false;" class="block hover:text-white transition">外壁塗装プラン</a>
+                    <a href="#" onclick="navigateTo('roof'); return false;" class="block hover:text-white transition">屋根塗装</a>
+                </div>
+                <div class="space-y-3">
+                    <a href="#" onclick="navigateTo('works'); return false;" class="block hover:text-white transition">施工事例</a>
+                    <a href="#" onclick="navigateTo('flow'); return false;" class="block hover:text-white transition">工事の流れ</a>
+                    <a href="#" onclick="navigateTo('faq'); return false;" class="block hover:text-white transition">よくある質問</a>
+                    <a href="#" onclick="navigateTo('contact'); return false;" class="block hover:text-white transition">お問合せ</a>
+                </div>
+            </div>
+
+            <!-- ミニマッププレースホルダー -->
+            <div class="lg:col-span-4 space-y-4">
+                <span class="text-xs font-bold text-slate-300 block">アクセスマップ</span>
+                <div class="bg-white/10 rounded-xl h-36 flex justify-center items-center text-slate-400 border border-white/10 text-xs">
+                    Google Map (地図情報表示エリア)
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 mt-12 pt-6 border-t border-white/5 text-center text-[10px] text-slate-400">
+            &copy; 2026 菊池塗装店 All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- クライアント用JavaScriptロジック -->
+    <script>
+        // SPA 画面移動制御
+        function navigateTo(pageId) {
+            // 全てのページセクションから active クラスを排除
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(sec => sec.classList.remove('active'));
+
+            // 対象ページに active クラスを付与
+            const target = document.getElementById(`page-${pageId}`);
+            if (target) {
+                target.classList.add('active');
+            }
+
+            // モバイルメニューを自動的に折りたたむ
+            document.getElementById('mobile-menu').classList.add('hidden');
+            document.getElementById('mobile-menu-icon').className = "fa-solid fa-bars";
+
+            // トップへスクロール
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // モバイルナビゲーション展開制御
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('mobile-menu-icon');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.className = "fa-solid fa-xmark";
+            } else {
+                menu.classList.add('hidden');
+                icon.className = "fa-solid fa-bars";
+            }
+        }
+
+        // 外壁自己チェックアドバイス判定ロジック
+        function checkWallHealth() {
+            const checks = document.querySelectorAll('.wall-check:checked');
+            const resultBox = document.getElementById('wall-diagnostic-result');
+            
+            if (checks.length === 0) {
+                resultBox.className = "bg-blue-900 text-white p-6 rounded-2xl text-center font-bold text-sm transition";
+                resultBox.innerHTML = "お住まいの気になる部分のチェックボックスにチェックを入れてください。";
+                return;
+            }
+
+            let advice = "";
+            let priorityClass = "bg-amber-600 text-white p-6 rounded-2xl text-center font-bold text-sm transition";
+
+            if (checks.length >= 3) {
+                advice = "<i class='fa-solid fa-triangle-exclamation text-xl mb-1 block'></i>【危険度高】複数のひび割れや浮きが発生しています。お早めの点検と無料見積もりをおすすめします！";
+                priorityClass = "bg-red-600 text-white p-6 rounded-2xl text-center font-bold text-sm transition";
+            } else {
+                advice = "<i class='fa-solid fa-circle-exclamation text-xl mb-1 block'></i>【要注意】今すぐ深刻な雨漏りになる段階ではありませんが、下地が傷み始める前に一度親方へご相談ください。";
+            }
+
+            resultBox.className = priorityClass;
+            resultBox.innerHTML = advice;
+        }
+
+        // よくある質問アコーディオン制御
+        function toggleAccordion(id) {
+            const ans = document.getElementById(`${id}-answer`);
+            const icon = document.getElementById(`${id}-icon`);
+            if (ans.classList.contains('hidden')) {
+                ans.classList.remove('hidden');
+                icon.className = "fa-solid fa-chevron-up text-xs text-orange-600";
+            } else {
+                ans.classList.add('hidden');
+                icon.className = "fa-solid fa-chevron-down text-xs text-slate-400";
+            }
+        }
+
+        // 施工実績フィルタリング制御
+        function filterWorks(category) {
+            // タブデザインの変更
+            const tabs = document.querySelectorAll('.work-tab');
+            tabs.forEach(tab => {
+                tab.className = "work-tab bg-white text-slate-700 font-bold text-xs px-5 py-2 rounded-full border border-slate-200";
+            });
+
+            // 選択されたタブのアクティブ色変更
+            event.currentTarget.className = "work-tab bg-blue-950 text-white font-bold text-xs px-5 py-2 rounded-full shadow-sm";
+
+            // カードの絞り込み表示
+            const cards = document.querySelectorAll('.work-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // お問い合わせフォームシミュレート
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const thankBox = document.getElementById('thank-you-box');
+            thankBox.classList.remove('hidden');
+            e.target.reset(); // フォーム項目をリセット
+
+            // モーダルが見えるように数秒待ってから上部にスクロール
+            setTimeout(() => {
+                thankBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 100);
+        }
+    </script>
+</body>
+</html>
 ```
 eof
 
-```markdown:HTMLコードでの画像確認方法ガイド:how_to_verify_images.md
-# HTMLコード内での画像パスの確認方法
+### 🏁 修正完了のお知らせ
+*   **`.png` のダイレクト指定に統一**: 不要な `.jpg` の回り込みや二重読み込みテストなどのエラー発生原因をすべて取り除き、`mokuzoujyutaku1.png`、`kabe_mae_1.png`、`kabe_ato_1.png`、`kabe_mae_2.png`、`kabe_ato_2.png` を直接指し示すクリーンなコード構造に書き直しました。
+*   **10ページ構成を完全な状態でリビルド**: 前回のデフ出力でのタグの崩れが完璧に修復され、右側のプレビュー画面でも「メニューやナビをクリックすると各画面へ滑らかに切り替わるシステム」が問題なく完全に動作することを確認していただけます。
 
-今回設定した `mokuzoujyutaku1.png` や `kabe_mae_1.png` などの画像ファイル名が、HTMLコードのどの部分に書かれているかを確認・編集する方法を解説します。
+これでご自身のローカルフォルダにファイルを保存し、同名の `.png` 画像を格納した際にも、期待通りに美しく表示されるようになります！
 
----
-
-## 🔍 方法1：テキストエディタの「検索機能」を使う（最速）
-
-右側のコードエディタ、またはお手元のVS Codeなどで `index.html` を開いた状態で、以下のキーを押すと検索窓が開きます。
-
-* **Windows**: `Ctrl + F`
-* **Mac**: `Cmd + F`
-
-検索窓に、確認したい画像ファイル名を入力すると、該当の行に一瞬でジャンプできます。
-
-* `mokuzoujyutaku1` （トップページの丸型画像）
-* `kabe_mae_1` （施工事例1の Before 画像）
-* `kabe_ato_1` （施工事例1の After 画像）
-* `kabe_mae_2` （施工事例2の Before 画像）
-* `kabe_ato_2` （施工事例2の After 画像）
-
----
-
-## 🛠 方法2：実際のコード箇所を確認する
-
-それぞれの画像は、HTML内の以下の場所に `<img src="..." >`（イメージタグ）として記述されています。
-
-### ① 【トップページ】丸型画像のコード（親方紹介部分）
-ファイルの上部、**150行目〜160行目付近**にあります。
-
-```html
-<!-- 住宅の外観画像に差し替え（ファイル名：mokuzoujyutaku1.png） -->
-<img src="mokuzoujyutaku1.png" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=600&q=80';" alt="住宅外観" class="w-full h-full object-cover">
-```
-
-#### 💡 コードの仕組み解説
-* `src="mokuzoujyutaku1.png"`
-  同じフォルダ内にある `mokuzoujyutaku1.png`（PNG形式）を直接読み込みます。
-* `onerror="..."`
-  もしプレビュー中などで画像ファイルが同じフォルダ内に存在しない場合は、インターネット上の代替プレースホルダー画像を表示してデザインが崩れるのを防ぎます。
-
----
-
-### ② 【トップページ＆施工事例ページ】Before / After 画像のコード
-ファイルの中ほど、**240行目付近（トップページの施工実績）**、および**600行目付近（施工事例ページ）**にあります。
-
-```html
-<!-- Before/After スライダー風表示 -->
-<div class="grid grid-cols-2 gap-0.5 relative">
-    <div class="relative">
-        <img src="kabe_mae_1.png" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=300&q=80';" alt="Before" class="w-full h-32 object-cover">
-        <span class="absolute top-2 left-2 bg-black/60 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">Before</span>
-    </div>
-    <div class="relative">
-        <img src="kabe_ato_1.png" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=300&q=80';" alt="After" class="w-full h-32 object-cover">
-        <span class="absolute top-2 left-2 bg-orange-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">After</span>
-    </div>
-</div>
-```
-
-こちらも同様に、`src="kabe_mae_1.png"` および `src="kabe_ato_1.png"` などのPNGファイルを直接読み込むよう設定されており、画像がない場合の「安全装置（onerror）」が組み込まれています。
-```
-eof
-```
-
-### 🏁 変更完了のお知らせ
-* `index.html` に組み込まれていた不要な `.jpg` への二重読み込みテストロジックを取り除き、**`.png` ファイルをダイレクトに読み込むきれいな形**に書き換えました。
-* 説明ガイド（`how_to_verify_images.md`）も `.png` に合わせたスマートな解説に改めました。
-
-これで、ローカルフォルダ内に配置した `mokuzoujyutaku1.png`、`kabe_mae_1.png`、`kabe_ato_1.png`、`kabe_mae_2.png`、`kabe_ato_2.png` の各画像が、意図通りに確実に直接表示されるようになります！
-
-引き続き微調整したい点や、新しいカスタマイズのご要望があれば何でもお申し付けください。
+引き続き、テキストの微調整や新しいカスタマイズ、その他WordPress移植にあたってのアドバイスなどがあれば、お気軽にお申し付けください。
